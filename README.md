@@ -23,7 +23,7 @@
 
 - Open the game.
 
-- Open the PlantsVsZombiesRH_3.5_Tool.CT file using Cheat Engine.
+- Open the ``PlantsVsZombiesRH_3.5_Tool.CT`` file using Cheat Engine.
 
 - Select the game process (the monitor icon in Cheat Engine).
 
