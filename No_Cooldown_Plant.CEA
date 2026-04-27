@@ -1,0 +1,15 @@
+[ENABLE]
+// Tìm đoạn mã máy (AOB) của lệnh movss [rcx+rax], xmm0
+aobscan(CooldownCode, F3 0F 11 04 01)
+registersymbol(CooldownCode)
+
+// Ghi đè bằng 5 lệnh NOP (90)
+CooldownCode:
+  db 90 90 90 90 90
+
+[DISABLE]
+// Khôi phục lại 5 byte gốc khi tắt cheat
+CooldownCode:
+  db F3 0F 11 04 01
+
+unregistersymbol(CooldownCode)

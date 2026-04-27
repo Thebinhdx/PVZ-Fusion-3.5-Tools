@@ -1,0 +1,21 @@
+[ENABLE]
+alloc(newmem, 2048, "GameAssembly.dll"+3B3904)
+label(returnhere)
+
+newmem:
+  // Thực hiện mod
+  add ebx, 1388
+  // Thực hiện lệnh gốc (đã bị bạn ghi đè bằng jmp)
+  mov [rsi+00000108], ebx
+  // Quay lại game
+  jmp returnhere
+
+"GameAssembly.dll"+3B3904:
+  jmp newmem
+  nop // Lệnh nop này là để lấp đầy khoảng trống của lệnh cũ bị đè
+returnhere:
+
+[DISABLE]
+"GameAssembly.dll"+3B3904:
+  // Đây chính là LỆNH GỐC của game
+  mov [rsi+00000108], ebx
